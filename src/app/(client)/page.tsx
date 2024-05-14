@@ -2,8 +2,9 @@ import Image from "next/image";
 import GetInTouch from "@/components/shared/contact/get-in-touch";
 import HomeImage from "./home-image.svg"
 import ServiceContainer from "@/components/shared/contact/service-container";
-import {services} from "@/app/services";
 import {MdMenu} from "react-icons/md";
+import {services} from "@/app/(client)/services";
+
 
 export default function Home() {
 
@@ -32,7 +33,6 @@ export default function Home() {
 
             <main className="flex min-h-screen flex-col gap-10 items-center container">
 
-                {/*<h1 className={`font-extrabold text-center text-3xl md:text-6xl`}>Coming Soon</h1>*/}
                 <div className={`w-full flex flex-col md:flex-row gap-4 justify-center items-center`}>
 
                     <div className={`w-full flex flex-col gap-4 items-center`}>

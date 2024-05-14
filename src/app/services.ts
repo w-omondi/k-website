@@ -9,7 +9,7 @@ export const services: ServiceContainerProps[] = [
     {
         description: "Make a lasting impression with our professional web design service. Our team of talented designers creates stunning websites that not only look great but also engage and inspire your audience. Whether you need a brand refresh or a completely new design, we've got you covered.",
         image: "/web-design-image.svg",
-        title: "Web Design"
+        title: "UX/UI Design"
     },
     {
         description: "Simplify the process of registering your domain name with our convenient domain registration service. We guide you through the selection process and handle all the technical details to ensure your domain is secured quickly and efficiently. Choose from a wide range of domain extensions to find the perfect match for your brand.",

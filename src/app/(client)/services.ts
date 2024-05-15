@@ -1,4 +1,4 @@
-import {ServiceContainerProps} from "@/components/shared/contact/service-container";
+import {ServiceContainerProps} from "@/components/shared/service-container";
 
 export const services: ServiceContainerProps[] = [
     {

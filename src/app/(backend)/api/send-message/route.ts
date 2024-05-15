@@ -1,21 +1,20 @@
 import {NextRequest, NextResponse} from "next/server";
 import {Resend} from 'resend';
 
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: NextRequest) {
 
     try {
         const {email, name, message} = await request.json()
-        const firstName = name?.split(" ")[0]
         console.log({email, name, message})
 
-        const resend = new Resend(process.env.RESEND_API_KEY);
 
         const response = await resend.emails.send({
-            from: `${email}`,
-            to: `onboarding@resend.dev`,
+            from: `info@klinfuture.com`,
+            to: [`washingnd@gmail.com`,],
             subject: 'Hello World',
-            html: message
+            html: `My is name: ${name}, email: ${email}, message: ${message}`
         });
 
         console.log({response})

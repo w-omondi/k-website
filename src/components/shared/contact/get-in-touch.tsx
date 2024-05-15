@@ -27,7 +27,7 @@ import {Input} from "@/components/ui/input";
 import {Textarea} from "@/components/ui/textarea";
 import {toast} from "sonner";
 
-interface IFormData {
+export interface IFormData {
     email: string;
     name: string;
     message: string;

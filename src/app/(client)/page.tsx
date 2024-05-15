@@ -1,9 +1,9 @@
 import Image from "next/image";
 import GetInTouch from "@/components/shared/contact/get-in-touch";
 import HomeImage from "./home-image.svg"
-import ServiceContainer from "@/components/shared/contact/service-container";
 import {MdMenu} from "react-icons/md";
 import {services} from "@/app/(client)/services";
+import ServiceContainer from "@/components/shared/service-container";
 
 
 export default function Home() {

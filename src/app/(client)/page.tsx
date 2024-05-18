@@ -31,7 +31,7 @@ export default function Home() {
                 </nav>
             </div>
 
-            <main className="flex min-h-screen flex-col items-center container py-20 text-xl">
+            <main className="flex min-h-screen flex-col items-center container py-20 md:text-xl">
 
                 <Head>
                     <title>About Us - Klinfuture</title>

@@ -1,7 +1,6 @@
 "use client"
 
-import React, {useState} from 'react';
-import {cn} from "@/lib/utils";
+import React from 'react';
 import {Button} from "@/components/ui/button";
 import {useMediaQuery} from "@react-hook/media-query";
 import {
@@ -22,10 +21,6 @@ import {
     DialogTitle,
     DialogTrigger
 } from "@/components/ui/dialog";
-import {Label} from "@/components/ui/label";
-import {Input} from "@/components/ui/input";
-import {Textarea} from "@/components/ui/textarea";
-import {toast} from "sonner";
 import MessageForm from "@/components/shared/contact/message-form";
 
 export interface IFormData {
@@ -50,7 +45,11 @@ function GetInTouch() {
                     <DialogHeader>
                         <DialogTitle>Get in touch</DialogTitle>
                         <DialogDescription>
-                            You have an idea, leave a message ?
+                            Reach out to us with your inquiries, project ideas, or feedback. Whether you are looking for
+                            {/* eslint-disable-next-line react/no-unescaped-entities */}
+                            a consultation, need support with a current project, or have a general question, we're here
+                            to help. Please fill out the form below, and our team will get back to you as soon as
+                            possible
                         </DialogDescription>
                     </DialogHeader>
                     <MessageForm toggleOpen={toggleOpen}/>
@@ -68,7 +67,10 @@ function GetInTouch() {
                 <DrawerHeader className="text-left">
                     <DrawerTitle>Get in touch</DrawerTitle>
                     <DrawerDescription>
-                        You have an idea, leave a message ?
+                        Reach out to us with your inquiries, project ideas, or feedback. Whether you are looking for a
+                        {/* eslint-disable-next-line react/no-unescaped-entities */}
+                        consultation, need support with a current project, or have a general question, we're here to
+                        help. Please fill out the form below, and our team will get back to you as soon as possible
                     </DrawerDescription>
                 </DrawerHeader>
                 <MessageForm className="px-4" toggleOpen={toggleOpen}/>
@@ -81,7 +83,6 @@ function GetInTouch() {
         </Drawer>
     )
 }
-
 
 
 export default GetInTouch;

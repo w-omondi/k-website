@@ -7,20 +7,37 @@ export async function POST(request: NextRequest) {
 
     try {
         const {email, name, message} = await request.json()
-        console.log({email, name, message})
+
+        const data = {
+            service_id: process.env.SERVICE_ID,
+            template_id: process.env.TEMPLATE_ID,
+            user_id: process.env.USER_ID,
+            accessToken: process.env.ACCESS_TOKEN,
+            template_params: {
+                message: message,
+                from_name: name,
+                from_email: email,
+                reply_to: email,
+                to_name: "Klinfuture",
+            }
+        };
+
+        const response = await fetch(
+            "https://api.emailjs.com/api/v1.0/email/send",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            }
+        )
+
+        console.log(response.status)
 
 
-        const response = await resend.emails.send({
-            from: `info@klinfuture.com`,
-            to: [`washingnd@gmail.com`,],
-            subject: 'Hello World',
-            html: `My is name: ${name}, email: ${email}, message: ${message}`
-        });
-
-        console.log({response})
-
-        if (response.error !== null) {
-            return NextResponse.json("Internal server error", {
+        if (!response.ok) {
+            return NextResponse.json({message: "Internal server error"}, {
                 status: 500,
             })
         }
@@ -30,7 +47,8 @@ export async function POST(request: NextRequest) {
         })
 
     } catch (e) {
-        return NextResponse.json("Internal server error", {
+        console.error(e)
+        return NextResponse.json({message: "Internal server error"}, {
             status: 500,
         })
     }

@@ -9,10 +9,10 @@ export interface ServiceContainerProps {
 
 }
 
-function ServiceContainer({title, description, image}: ServiceContainerProps) {
+function ServiceCard({title, description, image}: ServiceContainerProps) {
     return (
         <Card>
-            <CardHeader>
+            <CardHeader className={"space-y-4"}>
                 <CardTitle>{title}</CardTitle>
                 <CardDescription>{description}</CardDescription>
             </CardHeader>
@@ -32,4 +32,4 @@ function ServiceContainer({title, description, image}: ServiceContainerProps) {
     );
 }
 
-export default ServiceContainer;
+export default ServiceCard;

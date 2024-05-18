@@ -1,4 +1,4 @@
-import {ServiceContainerProps} from "@/components/shared/service-container";
+import {ServiceContainerProps} from "@/components/shared/service-card";
 
 export const services: ServiceContainerProps[] = [
     {
@@ -22,3 +22,5 @@ export const services: ServiceContainerProps[] = [
         title: "Web Hosting"
     }
 ];
+
+

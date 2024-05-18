@@ -26,6 +26,7 @@ import {Label} from "@/components/ui/label";
 import {Input} from "@/components/ui/input";
 import {Textarea} from "@/components/ui/textarea";
 import {toast} from "sonner";
+import MessageForm from "@/components/shared/contact/message-form";
 
 export interface IFormData {
     email: string;
@@ -52,7 +53,7 @@ function GetInTouch() {
                             You have an idea, leave a message ?
                         </DialogDescription>
                     </DialogHeader>
-                    <ProfileForm toggleOpen={toggleOpen}/>
+                    <MessageForm toggleOpen={toggleOpen}/>
                 </DialogContent>
             </Dialog>
         )
@@ -61,7 +62,7 @@ function GetInTouch() {
     return (
         <Drawer open={open} onOpenChange={setOpen}>
             <DrawerTrigger asChild>
-                <Button variant="default" className={`shadow-sm`}>Get in touch</Button>
+                <Button variant="default" className={`shadow-sm text-lg`}>Get in touch</Button>
             </DrawerTrigger>
             <DrawerContent>
                 <DrawerHeader className="text-left">
@@ -70,7 +71,7 @@ function GetInTouch() {
                         You have an idea, leave a message ?
                     </DrawerDescription>
                 </DrawerHeader>
-                <ProfileForm className="px-4" toggleOpen={toggleOpen}/>
+                <MessageForm className="px-4" toggleOpen={toggleOpen}/>
                 <DrawerFooter className="pt-2">
                     <DrawerClose asChild>
                         <Button variant="outline">Cancel</Button>
@@ -81,73 +82,6 @@ function GetInTouch() {
     )
 }
 
-function ProfileForm({className, toggleOpen}: React.ComponentProps<"form"> & {
-    toggleOpen: () => void
-}) {
-    const [formData, setFormData] = useState<IFormData>({} as IFormData);
-    const [isLoading, setIsLoading] = useState(false)
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        setFormData(value => ({
-            ...value,
-            [e.target.id]: e.target.value
-        }))
-    }
-    const handleSendMessage = async (e: React.FormEvent) => {
-        e.preventDefault();
-        try {
-            setIsLoading(true)
-            const res = await fetch("/api/send-message", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(formData)
-            })
 
-            const data = await res.json();
-
-            setIsLoading(false)
-
-            if (res.ok) {
-                toggleOpen()
-                toast.success("Message sent")
-
-            } else {
-                toast.error("Message not sent")
-            }
-
-        } catch (e) {
-            setIsLoading(false)
-            console.error(e)
-            toast.error("Message not sent")
-        }
-
-    }
-    return (
-        <form className={cn("grid items-start gap-4", className)} onSubmit={handleSendMessage}>
-            <div className="grid gap-2">
-                <Label htmlFor="name">Name</Label>
-                <Input type="name" id="name" onChange={handleInputChange} required/>
-            </div>
-            <div className="grid gap-2">
-                <Label htmlFor="email">Email</Label>
-                <Input type="email" id="email" onChange={handleInputChange} placeholder="example@example.com" required/>
-            </div>
-            <div className="grid gap-2">
-                <Label htmlFor="message">Message</Label>
-                <Textarea
-                    id="message"
-                    maxLength={500}
-                    minLength={5}
-                    onChange={handleInputChange}
-                    placeholder="Type your message here."
-                    required
-                />
-            </div>
-
-            <Button type="submit" disabled={isLoading}>{isLoading ? "Sending ..." : "Send Message"}</Button>
-        </form>
-    )
-}
 
 export default GetInTouch;

@@ -42,7 +42,7 @@ export default function Home() {
 
                     <div className={`w-full flex flex-col gap-4 items-center`}>
                         <Image
-                            className="relative object-contain"
+                            className="relative object-contain object-center"
                             src={HomeImage}
                             alt="Klinfuture Logo"
                             width={400}

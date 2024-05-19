@@ -41,15 +41,11 @@ function GetInTouch() {
                 <DialogTrigger asChild>
                     <Button variant="default" className={`shadow-sm`}>Get in touch</Button>
                 </DialogTrigger>
-                <DialogContent className="sm:max-w-[425px]">
+                <DialogContent className="sm:max-w-[425px] bg-white">
                     <DialogHeader>
                         <DialogTitle>Get in touch</DialogTitle>
                         <DialogDescription>
-                            Reach out to us with your inquiries, project ideas, or feedback. Whether you are looking for
-                            {/* eslint-disable-next-line react/no-unescaped-entities */}
-                            a consultation, need support with a current project, or have a general question, we're here
-                            to help. Please fill out the form below, and our team will get back to you as soon as
-                            possible
+                            Reach out to us with your inquiries, project ideas, or feedback.
                         </DialogDescription>
                     </DialogHeader>
                     <MessageForm toggleOpen={toggleOpen}/>
@@ -63,14 +59,11 @@ function GetInTouch() {
             <DrawerTrigger asChild>
                 <Button variant="default" className={`shadow-sm text-lg`}>Get in touch</Button>
             </DrawerTrigger>
-            <DrawerContent>
+            <DrawerContent className={"bg-white"}>
                 <DrawerHeader className="text-left">
                     <DrawerTitle>Get in touch</DrawerTitle>
                     <DrawerDescription>
-                        Reach out to us with your inquiries, project ideas, or feedback. Whether you are looking for a
-                        {/* eslint-disable-next-line react/no-unescaped-entities */}
-                        consultation, need support with a current project, or have a general question, we're here to
-                        help. Please fill out the form below, and our team will get back to you as soon as possible
+                        Reach out to us with your inquiries, project ideas, or feedback.
                     </DrawerDescription>
                 </DrawerHeader>
                 <MessageForm className="px-4" toggleOpen={toggleOpen}/>

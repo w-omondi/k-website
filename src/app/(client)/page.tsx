@@ -31,18 +31,13 @@ export default function Home() {
                 </nav>
             </div>
 
-            <main className="flex min-h-screen flex-col items-center container py-20 md:text-xl">
+            <main className="flex min-h-screen flex-col items-center container pb-20 md:text-xl">
 
-                <Head>
-                    <title>About Us - Klinfuture</title>
-                    <meta name="description" content="Learn more about Klinfuture and our services."/>
-                </Head>
+                <div className={`w-full flex flex-col md:flex-row gap-4 items-center pt-20 md:pt-0 min-h-screen`}>
 
-                <div className={`w-full flex flex-col md:flex-row gap-4 justify-center items-center min-h-[80vh]`}>
-
-                    <div className={`w-full flex flex-col gap-4 items-center`}>
+                    <div className={`w-full flex flex-col h-[400px] md:h-[50vh] gap-4 items-center`}>
                         <Image
-                            className="relative object-contain object-center"
+                            className="relative w-full h-[400px] md:h-[50vh] object-contain object-center"
                             src={HomeImage}
                             alt="Klinfuture Logo"
                             width={400}

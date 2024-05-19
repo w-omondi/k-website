@@ -53,7 +53,7 @@ function MessageForm({className, toggleOpen}: React.ComponentProps<"form"> & {
         <form className={cn("grid items-start gap-4", className)} onSubmit={handleSendMessage}>
             <div className="grid gap-2">
                 <Label htmlFor="name">Name</Label>
-                <Input type="text" id="name" onChange={handleInputChange} value={formData?.name} placeholder={"Full name"} autoFocus required/>
+                <Input type="text" id="name" onChange={handleInputChange} value={formData?.name} placeholder={"Full name"} required/>
             </div>
             <div className="grid gap-2">
                 <Label htmlFor="email">Email</Label>
